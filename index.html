@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elton Garage | Estética Automotiva</title>
+    <meta name="description" content="Elton Garage - Estética Automotiva em Jacarezinho, PR. Lavagem detalhada, polimento, vitrificação e restauração de faróis. Cuidamos dos detalhes que fazem a diferença.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary: #7B2CBF; /* Roxo da logo */
+            --primary-dark: #5A189A;
+            --secondary: #FFD700; /* Amarelo/Dourado para destaques */
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: #1a1a1a;
+            --text-light: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.4);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 10, 10, 0.9));
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            color: #fff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--darker-bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-text ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .about-text ul li i {
+            color: var(--secondary);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--dark-bg);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(123, 44, 191, 0.2);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background-color: var(--darker-bg);
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        /* Banner CTA Section */
+        #banner-cta {
+            padding: 0;
+            position: relative;
+            background-color: var(--dark-bg);
+        }
+
+        .banner-img-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid rgba(123, 44, 191, 0.3);
+        }
+
+        .banner-img-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(123, 44, 191, 0.4);
+            border-color: var(--primary);
+        }
+
+        .banner-img-container img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--darker-bg);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: border-color 0.3s;
+        }
+
+        .review-card:hover {
+            border-color: var(--primary);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .review-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .stars {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Location & Contact */
+        #contact {
+            background-color: var(--dark-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .contact-item div h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .contact-item div p, .contact-item div a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-item div a:hover {
+            color: var(--primary);
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-padding {
+                padding: 50px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <!-- Logo da Empresa -->
+                <a href="#hero"><img src="IMG-20261001-WA0091.jpg" alt="Elton Garage Logo"></a>
+            </div>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#testimonials">Avaliações</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section id="hero">
+        <!-- Vídeo de fundo -->
+        <video class="video-bg" autoplay loop muted playsinline>
+            <source src="snapinsta-1790900273200.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>ELTON GARAGE <br><span>ESTÉTICA AUTOMOTIVA</span></h1>
+            <p>Cuidamos dos detalhes que fazem a diferença.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5543984315934?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Faça seu Orçamento</a>
+                <a href="https://www.instagram.com/elton.garage043?stkn=MjA0em04empiOG5v" target="_blank" class="btn btn-instagram"><i class="fab fa-instagram"></i> Siga no Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2>Quem Somos</h2>
+                <p>A <strong>Elton Garage</strong> é referência em estética automotiva em Jacarezinho, Paraná. Nosso compromisso é elevar o padrão do seu veículo, seja ele um carro ou uma moto, devolvendo o brilho e a proteção que ele merece.</p>
+                <p>Trabalhamos com produtos de alta qualidade e técnicas especializadas para garantir um resultado impecável. Do básico bem feito ao padrão máximo, cuidamos de cada detalhe com paixão e profissionalismo.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Atendimento personalizado</li>
+                    <li><i class="fas fa-check-circle"></i> Produtos premium</li>
+                    <li><i class="fas fa-check-circle"></i> Equipe especializada</li>
+                    <li><i class="fas fa-check-circle"></i> Serviço de Leva e Traz</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <!-- Foto de exemplo do carro do cliente -->
+                <img src="IMG-20261001-WA0667.jpg" alt="Carro finalizado na Elton Garage">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Nossos <span>Serviços</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car-wash"></i></div>
+                    <h3>Lavagem Detalhada</h3>
+                    <p>Lavagem minuciosa com produtos específicos para cada tipo de superfície, garantindo limpeza profunda sem danificar a pintura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Polimento</h3>
+                    <p>Remoção de riscos, manchas e imperfeições, devolvendo o brilho espelhado e a proteção da pintura do seu veículo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Vitrificação</h3>
+                    <p>Proteção cerâmica de longa duração que cria uma camada protetora contra raios UV, sujeira e agentes externos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Restauração de Farol</h3>
+                    <p>Recuperação da transparência e luminosidade dos faróis, melhorando a estética e a segurança da sua direção.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Nosso <span>Trabalho</span></h2>
+            
+            <div class="gallery-tabs">
+                <button class="tab-btn active" onclick="filterGallery('all')">Todos</button>
+                <button class="tab-btn" onclick="filterGallery('carros')">Carros</button>
+                <button class="tab-btn" onclick="filterGallery('motos')">Motos</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Carros -->
+                <div class="gallery-item" data-category="carros">
+                    <img src="IMG-20261001-WA0667.jpg" alt="Estética Automotiva Carro 1">
+                    <div class="gallery-overlay"><span>Carro Detalhado</span></div>
+                </div>
+                <div class="gallery-item" data-category="carros">
+                    <img src="IMG-20261001-WA0665.jpg" alt="Estética Automotiva Carro 2">
+                    <div class="gallery-overlay"><span>Polimento e Brilho</span></div>
+                </div>
+                <div class="gallery-item" data-category="carros">
+                    <img src="IMG-20261001-WA0663.jpg" alt="Estética Automotiva Carro 3">
+                    <div class="gallery-overlay"><span>Interior Impecável</span></div>
+                </div>
+
+                <!-- Motos -->
+                <div class="gallery-item" data-category="motos">
+                    <img src="IMG-20261001-WA0670.jpg" alt="Estética Moto 1">
+                    <div class="gallery-overlay"><span>Moto Detalhada</span></div>
+                </div>
+                <div class="gallery-item" data-category="motos">
+                    <img src="IMG-20261001-WA0668.jpg" alt="Estética Moto 2">
+                    <div class="gallery-overlay"><span>Tanque Espelhado</span></div>
+                </div>
+                <div class="gallery-item" data-category="motos">
+                    <img src="IMG-20261001-WA0669.jpg" alt="Estética Moto 3">
+                    <div class="gallery-overlay"><span>Cuidado nos Detalhes</span></div>
+                </div>
+                <div class="gallery-item" data-category="motos">
+                    <img src="IMG-20261001-WA0664.jpg" alt="Estética Moto 4">
+                    <div class="gallery-overlay"><span>Limpeza de Chassi</span></div>
+                </div>
+                <div class="gallery-item" data-category="motos">
+                    <img src="IMG-20261001-WA0666.jpg" alt="Estética Moto 5">
+                    <div class="gallery-overlay"><span>Acabamento Premium</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA Section -->
+    <section id="banner-cta" class="section-padding">
+        <div class="container">
+            <a href="https://wa.me/5543984315934?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" class="banner-img-container">
+                <!-- Imagem promocional com link para WhatsApp -->
+                <img src="IMG-20261001-WA0689.jpg" alt="Seu carro merece voltar a ter cara de novo - Faça seu orçamento">
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">O que nossos <span>Clientes</span> dizem</h2>
+            <div class="reviews-grid">
+                
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div class="review-info">
+                            <h4>Antonio Ferreira Silvestre da Silva</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente profissional resultado impecável"</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">F</div>
+                        <div class="review-info">
+                            <h4>Felipe Mateus Jabali Naide</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Qualidade garantida, serviço top demais."</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div class="review-info">
+                            <h4>Ariella Ribeiro</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Ótimo serviço e atendimento"</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">E</div>
+                        <div class="review-info">
+                            <h4>Erick Souza</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Melhor experiência com uma estética em Jacarezinho, ele até busca o veículo! Excelente trabalho!!!"</p>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">C</div>
+                        <div class="review-info">
+                            <h4>Camila Alecrim</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Atendimento rápido, atencioso aos detalhes do carro, lavagem bem detalhada, um ótimo serviço, recomendo"</p>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">G</div>
+                        <div class="review-info">
+                            <h4>Gabriel Pinheiro</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Padrão altíssimo. Capricho, qualidade e atenção aos detalhes em um nível difícil de encontrar hoje."</p>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">C</div>
+                        <div class="review-info">
+                            <h4>Claudemir Evangelista</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Serviço sempre com qualidade..."</p>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">D</div>
+                        <div class="review-info">
+                            <h4>Daiany Milani</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"um ótimo atendimento, bem esclarecido sem contar com o trabalho excelente.. uma limpeza detalhada, perfeito !"</p>
+                </div>
+
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Z</div>
+                        <div class="review-info">
+                            <h4>ZEROKZ FRANDINI</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Sou de outra cidade e encontrei a estética por acaso quando estava procurando um lugar de confiança pra cuidar do meu carro. Sinceramente, foi uma das melhores surpresas que já tive. Atendimento excelente, muito profissionalismo e um ..."</p>
+                </div>
+                
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div class="review-info">
+                            <h4>Ana rosa Da silva</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Atendimento rápido,Trabalho excelente! Restauração ficou ótima."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Onde <span>Estamos</span></h2>
+            <div class="contact-grid">
+                
+                <div class="contact-info">
+                    <h3>Entre em Contato</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>R. Amazonas, 140 - Vila São Pedro<br>Jacarezinho - PR, 86400-000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/5543984315934" target="_blank">(43) 98431-5934</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Aberto 24 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <h4>Serviço Leva e Traz</h4>
+                            <p>Consulte disponibilidade para sua região.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5543984315934?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20servi%C3%A7o!" target="_blank" class="btn btn-whatsapp" style="margin-top: 20px;"><i class="fab fa-whatsapp"></i> Chamar no WhatsApp</a>
+                </div>
+
+                <div class="map-container">
+                    <!-- Mapa incorporado -->
+                    <div style="width: 100%; overflow: hidden; max-width: 800px; margin: 0 auto;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.631696482635!2d-50.0123456789!3d-23.1600000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA5JzM2LjAiUyA1MMKwMDAnNDQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="IMG-20261001-WA0091.jpg" alt="Elton Garage Logo">
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/elton.garage043?stkn=MjA0em04empiOG5v" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5543984315934" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Elton Garage | Estética Automotiva. Todos os direitos reservados.</p>
+                <p>Jacarezinho - PR</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5543984315934?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Gallery Filter functionality
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Initialize gallery items style for animation
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        });
+    </script>
+
+</body>
+</html>
